@@ -12,6 +12,7 @@
 ██║░░░░░██║██╔══██╗██╔══██╗██╔══██║██╔══██╗░░╚██╔╝░░
 ███████╗██║██████╦╝██║░░██║██║░░██║██║░░██║░░░██║░░░
 ╚══════╝╚═╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░
+https://discord.gg/tRBmFZGF7u
 ]]--
 
 local UI = {}
@@ -280,9 +281,7 @@ function UI:CreateUI(LogoRBXID : string, Link : string, VerifyFunction, PassFunc
 			if Status == 0 then
 				NewError("That Key Has Expired", 5)
 			else
-				if Status ~= 0 and Status ~= 1 then
-					NewError("That Key Doesnt Exist", 5)
-				end
+				NewError("That Key Doesnt Exist", 5)
 			end
 		end
 	end)
