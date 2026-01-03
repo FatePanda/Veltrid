@@ -12,7 +12,6 @@
 ██║░░░░░██║██╔══██╗██╔══██╗██╔══██║██╔══██╗░░╚██╔╝░░
 ███████╗██║██████╦╝██║░░██║██║░░██║██║░░██║░░░██║░░░
 ╚══════╝╚═╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░
-https://discord.gg/tRBmFZGF7u
 ]]--
 
 local UI = {}
@@ -44,6 +43,8 @@ function UI:CreateUI(LogoRBXID : string, Link : string, VerifyFunction, PassFunc
 	local KeyStroke = Instance.new("UIStroke")
 	local MainAspect = Instance.new("UIAspectRatioConstraint")
 	local DragDetector = Instance.new("UIDragDetector")
+	local MouseMover = Instance.new("ImageLabel")
+	local MouseMoverAspect = Instance.new("UIAspectRatioConstraint")
 	
 	local CurrentTask
 	
@@ -88,6 +89,7 @@ function UI:CreateUI(LogoRBXID : string, Link : string, VerifyFunction, PassFunc
 	Holder_Main.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
 	Holder_Main.Size = UDim2.new(1, 0, 1, 0)
 	Holder_Main.Name = "Main_2"
+	Holder_Main.ZIndex = -1
 
 	Bg.Parent = Holder_Main
 	Bg.ScaleType = Enum.ScaleType.Tile
@@ -237,6 +239,26 @@ function UI:CreateUI(LogoRBXID : string, Link : string, VerifyFunction, PassFunc
 	DragDetector.BoundingBehavior = Enum.UIDragDetectorBoundingBehavior.EntireObject
 	DragDetector.BoundingUI = HolderMain
 	
+	MouseMover.Name = "MouseMoveEffect"
+	MouseMover.Parent = Holder_Main
+	MouseMover.BackgroundTransparency = 1
+	MouseMover.Size = UDim2.new(0.6, 0, 0.6, 0)
+	MouseMover.Image = "rbxassetid://101711038897104"
+	MouseMover.ImageTransparency = 0.965
+	MouseMover.ZIndex = 0
+
+	MouseMoverAspect.Parent = MouseMover
+	
+	local IsLooping = true
+	local UIS = game:GetService("UserInputService")
+	
+	local LoopFunction = task.spawn(function()
+		while task.wait() do
+			if not IsLooping then break end
+			MouseMover:TweenPosition(UDim2.fromOffset(UIS:GetMouseLocation().X - Holder_Main.AbsolutePosition.X - MouseMover.AbsoluteSize.X / 2,UIS:GetMouseLocation().Y - Holder_Main.AbsolutePosition.Y - MouseMover.AbsoluteSize.Y / 1.5), Enum.EasingDirection.Out, Enum.EasingStyle.Linear, 0.05)
+		end
+	end)
+	
 	VerifyButton.MouseEnter:Connect(function()
 		VerifyButton.TextColor3 = Color3.fromRGB(255,255,255)
 	end)
@@ -250,13 +272,17 @@ function UI:CreateUI(LogoRBXID : string, Link : string, VerifyFunction, PassFunc
 		if Status == 1 then
 			NewError("Success", 5, true)
 			task.wait(2)
+			IsLooping = false
+			task.cancel(LoopFunction)
 			PassFunction()
 			UILibMain:Destroy()
 		else
 			if Status == 0 then
 				NewError("That Key Has Expired", 5)
 			else
-				NewError("That Key Doesnt Exist", 5)
+				if Status ~= 0 and Status ~= 1 then
+					NewError("That Key Doesnt Exist", 5)
+				end
 			end
 		end
 	end)
