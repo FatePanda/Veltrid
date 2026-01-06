@@ -17,7 +17,7 @@ https://discord.gg/S5NSXXyJfF
 
 local UILib = {}
 
-function UILib:CreateUI(Version)
+function UILib:CreateUI(Version : string)
 	local UILibMain = Instance.new("ScreenGui")
 	local HolderMain = Instance.new("Frame")
 	local CanvasGroupMain = Instance.new("CanvasGroup")
@@ -420,8 +420,8 @@ function UILib:CreateUI(Version)
 	UIDragDetector.Parent = SliderSection
 
 	UIGradient.Color = ColorSequence.new{
-		ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 123.0000002682209, 123.0000002682209)),
-		ColorSequenceKeypoint.new(1, Color3.fromRGB(157.0000058412552, 255, 140.00000685453415))
+		ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 120, 120)),
+		ColorSequenceKeypoint.new(1, Color3.fromRGB(155, 255, 140))
 	}
 	UIGradient.Parent = SliderMain
 
@@ -451,7 +451,7 @@ function UILib:CreateUI(Version)
 	TemplateButton.Visible = false
 
 	UIStroke5.BorderStrokePosition = Enum.BorderStrokePosition.Inner
-	UIStroke5.Color = Color3.fromRGB(34.00000177323818, 34.00000177323818, 34.00000177323818)
+	UIStroke5.Color = Color3.fromRGB(34, 34, 34)
 	UIStroke5.Thickness = 2
 	UIStroke5.Parent = TemplateButton
 
@@ -519,7 +519,7 @@ function UILib:CreateUI(Version)
 	UIStroke7.Thickness = 2
 	UIStroke7.Parent = LabelTemplate
 	
-	function self:CreatePage(PageName_, PageIcon, SetCurrentPage)
+	function self:CreatePage(PageName_ : string, PageIcon : string, SetCurrentPage : BoolValue)
 		local NewPage = PageTemplate:Clone()
 		NewPage.Name = PageName_
 		NewPage.Parent = MainPageSection
@@ -547,7 +547,7 @@ function UILib:CreateUI(Version)
 		PageButton.MouseButton1Click:Connect(function()MakeVisible()end)
 		if SetCurrentPage then MakeVisible()end
 		
-		function self:CreateButton(ButtonName, TitleText, DescriptionText, ButtonText, ButtonFunction)
+		function self:CreateButton(ButtonName: string, TitleText: string, DescriptionText: string, ButtonText: string, ButtonFunction: () -> ())
 			local NewButton = TemplateButton:Clone()
 			NewButton.Name = ButtonName
 			NewButton.Parent = NewPage
@@ -559,7 +559,7 @@ function UILib:CreateUI(Version)
 			NewButton.Visible = true
 		end
 		
-		function self:CreateBool(BoolName, TitleText, DescriptionText, CurrentValue, BoolFunction)
+		function self:CreateBool(BoolName: string, TitleText: string, DescriptionText: string, CurrentValue: boolean, BoolFunction: () -> ())
 			local NewBool = BoolTemplate:Clone()
 			NewBool.Name = BoolName
 			NewBool.Parent = NewPage
@@ -581,7 +581,7 @@ function UILib:CreateUI(Version)
 			NewBool.Visible = true
 		end
 		
-		function self:CreateSlider(SliderName, TitleText, DescriptionText, SliderFunction)
+		function self:CreateSlider(SliderName: string, TitleText: string, DescriptionText: string, SliderFunction: () -> ())
 			local NewSlider = TemplateSlider:Clone()
 			NewSlider.Name = SliderName
 			NewSlider.Parent = NewPage
@@ -603,7 +603,7 @@ function UILib:CreateUI(Version)
 			NewSlider.Visible = true
 		end
 		
-		function self:CreateInput(InputName, TitleText, DescriptionText, InputFunction)
+		function self:CreateInput(InputName: string, TitleText: string, DescriptionText: string, InputFunction: () -> ())
 			local NewInput = TemplateInput:Clone()
 			NewInput.Name = InputName
 			NewInput.Parent = NewPage
@@ -616,7 +616,7 @@ function UILib:CreateUI(Version)
 			NewInput.Visible = true
 		end
 		
-		function self:CreateLabel(LabelName, LabelText)
+		function self:CreateLabel(LabelName: string, LabelText: string)
 			local NewLabel = LabelTemplate:Clone()
 			NewLabel.Name = LabelName
 			NewLabel.Parent = NewPage
