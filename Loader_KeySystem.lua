@@ -17,7 +17,7 @@ https://discord.gg/S5NSXXyJfF
 
 local UI = {}
 
-function UI:CreateUI(LogoID: string, KeyLink: string, VerifyFunction: () -> (), PassFunction:() -> ())
+function UI:CreateUI(LogoID: string, KeyLink: string, VerifyFunction: () -> (), PassFunction: () -> ())
 	local UILibMain = Instance.new("ScreenGui")
 	local HolderMain = Instance.new("Frame")
 	local CanvasGroupMain = Instance.new("CanvasGroup")
