@@ -402,7 +402,7 @@ function UILib:CreateUI(Version)
 
 	SliderSection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	SliderSection.BorderSizePixel = 0
-	SliderSection.Position = UDim2.new(0.330954194, -53, -0.71746242, 2)
+	SliderSection.Position = UDim2.new(0, 0, -0.5,0)
 	SliderSection.Size = UDim2.new(0.0453926474, 0, 2.05323386, 0)
 	SliderSection.Name = "SliderSection"
 	SliderSection.Parent = SliderMain
@@ -566,7 +566,7 @@ function UILib:CreateUI(Version)
 			if CurrentValue ~= nil then
 				CV = CurrentValue
 			else
-				CV = false
+				CV = falsep
 			end
 			NewBool:WaitForChild("ToggleButton").Text = tostring(CV)
 			NewBool.ToggleButton.MouseButton1Click:Connect(function()
@@ -586,8 +586,8 @@ function UILib:CreateUI(Version)
 			NewSlider:WaitForChild("Description").Text = DescriptionText
 			task.spawn(function()
 				while task.wait() do
-					local Formatted = string.format("%.1f", NewSlider:WaitForChild("SliderMain"):WaitForChild("SliderSection").Position.X.Scale - .3) * 100
-					if NewSlider:WaitForChild("Percentage").Text ~= tostring(Formatted).."%" then
+					local Formatted = string.format("%.1f", NewSlider:WaitForChild("SliderMain"):WaitForChild("SliderSection").Position.X.Scale) * 100
+					if NewSlider:WaitForChild("Percentage").Text ~= tostring(Formatted).."%" and string.split(Formatted, "")[1] ~= "-" then
 						NewSlider:WaitForChild("Percentage").Text = tostring(Formatted).."%"
 						SliderFunction(Formatted)
 					end
