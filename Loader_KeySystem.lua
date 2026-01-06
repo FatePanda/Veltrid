@@ -17,7 +17,7 @@ https://discord.gg/S5NSXXyJfF
 
 local UI = {}
 
-function UI:CreateUI(LogoRBXID : string, Link : string, VerifyFunction, PassFunction)
+function UI:CreateUI(LogoID: string, KeyLink: string, VerifyFunction: () -> (), PassFunction:() -> ())
 	local UILibMain = Instance.new("ScreenGui")
 	local HolderMain = Instance.new("Frame")
 	local CanvasGroupMain = Instance.new("CanvasGroup")
@@ -208,7 +208,7 @@ function UI:CreateUI(LogoRBXID : string, Link : string, VerifyFunction, PassFunc
 	ErrorMessage.Position = UDim2.new(0.0799, 0, 0.52577, 0)
 
 	Logo.Parent = UsableArea
-	Logo.Image = LogoRBXID
+	Logo.Image = LogoID
 	Logo.Size = UDim2.new(0.37723, 0, 0.4951, 0)
 	Logo.BackgroundTransparency = 1
 	Logo.Name = "Logo"
@@ -296,12 +296,12 @@ function UI:CreateUI(LogoRBXID : string, Link : string, VerifyFunction, PassFunc
 	
 	GetButton.MouseButton1Click:Connect(function()
 		local SetCliboard = pcall(function()
-			setclipboard(Link)
+			setclipboard(KeyLink)
 		end)
 		if SetCliboard then
 			NewError("Link To Key Copied To Clipboard", 5)
 		else
-			NewError("Your Executor Does Not Support Setclipboard Please Visit: "..tostring(Link).. " To Get A Key", 15)
+			NewError("Your Executor Does Not Support Setclipboard Please Visit: "..tostring(KeyLink).. " To Get A Key", 15)
 		end
 	end)
 	
