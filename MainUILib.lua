@@ -17,7 +17,7 @@ https://discord.gg/S5NSXXyJfF
 
 local UILib = {}
 
-function UILib:CreateUI(Version : string)
+function UILib:CreateUI(Version: string)
 	local UILibMain = Instance.new("ScreenGui")
 	local HolderMain = Instance.new("Frame")
 	local CanvasGroupMain = Instance.new("CanvasGroup")
@@ -252,7 +252,7 @@ function UILib:CreateUI(Version : string)
 	BoolTemplateTitle.Font = Enum.Font.SourceSans
 	BoolTemplateTitle.Text = "{TitleText}"
 	BoolTemplateTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-	BoolTemplateTitle.TextSize = 26
+	BoolTemplateTitle.TextScaled = true
 	BoolTemplateTitle.TextWrapped = true
 	BoolTemplateTitle.TextXAlignment = Enum.TextXAlignment.Left
 	BoolTemplateTitle.TextYAlignment = Enum.TextYAlignment.Top
@@ -266,7 +266,7 @@ function UILib:CreateUI(Version : string)
 	BoolTemplateDescription.Font = Enum.Font.SourceSans
 	BoolTemplateDescription.Text = "{DescriptionText}"
 	BoolTemplateDescription.TextColor3 = Color3.fromRGB(148, 148, 148)
-	BoolTemplateDescription.TextSize = 26
+	BoolTemplateDescription.TextScaled = true
 	BoolTemplateDescription.TextWrapped = true
 	BoolTemplateDescription.TextXAlignment = Enum.TextXAlignment.Left
 	BoolTemplateDescription.TextYAlignment = Enum.TextYAlignment.Top
@@ -274,14 +274,14 @@ function UILib:CreateUI(Version : string)
 	BoolTemplateDescription.BackgroundTransparency = 1
 	BoolTemplateDescription.BorderSizePixel = 0
 	BoolTemplateDescription.Position = UDim2.new(0.00915685389, 0, 0.309655368, 0)
-	BoolTemplateDescription.Size = UDim2.new(0.831513882, 0, 0.60665369, 0)
+	BoolTemplateDescription.Size = UDim2.new(0.832, 0,0.31, 0)
 	BoolTemplateDescription.Name = "Description"
 	BoolTemplateDescription.Parent = BoolTemplate
 
 	BoolToggleButton.Font = Enum.Font.GothamBold
 	BoolToggleButton.Text = "{State}"
 	BoolToggleButton.TextColor3 = Color3.fromRGB(156, 156, 156)
-	BoolToggleButton.TextSize = 21
+	BoolToggleButton.TextScaled = true
 	BoolToggleButton.AutoButtonColor = false
 	BoolToggleButton.Modal = true
 	BoolToggleButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
@@ -312,7 +312,7 @@ function UILib:CreateUI(Version : string)
 	Title1.Font = Enum.Font.SourceSans
 	Title1.Text = "{TitleText}"
 	Title1.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title1.TextSize = 26
+	Title1.TextScaled = true 
 	Title1.TextWrapped = true
 	Title1.TextXAlignment = Enum.TextXAlignment.Left
 	Title1.TextYAlignment = Enum.TextYAlignment.Top
@@ -327,12 +327,12 @@ function UILib:CreateUI(Version : string)
 	Description1.Font = Enum.Font.SourceSans
 	Description1.Text = "{DescriptionText}"
 	Description1.TextColor3 = Color3.fromRGB(148, 148, 148)
-	Description1.TextSize = 26
+	Description1.TextScaled = true 
 	Description1.TextXAlignment = Enum.TextXAlignment.Left
 	Description1.TextYAlignment = Enum.TextYAlignment.Top
 	Description1.BackgroundTransparency = 1
 	Description1.Position = UDim2.new(0.00915685389, 0, 0.309655368, 0)
-	Description1.Size = UDim2.new(0.831513882, 0, 0.60665369, 0)
+	Description1.Size = UDim2.new(0.832, 0,0.31, 0)
 	Description1.Name = "Description"
 	Description1.Parent = TemplateInput
 
@@ -372,7 +372,7 @@ function UILib:CreateUI(Version : string)
 	Title2.Font = Enum.Font.SourceSans
 	Title2.Text = "{TitleText}"
 	Title2.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title2.TextSize = 26
+	Title2.TextScaled = true 
 	Title2.TextWrapped = true
 	Title2.TextXAlignment = Enum.TextXAlignment.Left
 	Title2.TextYAlignment = Enum.TextYAlignment.Top
@@ -386,14 +386,14 @@ function UILib:CreateUI(Version : string)
 	Description2.Font = Enum.Font.SourceSans
 	Description2.Text = "{DescriptionText}"
 	Description2.TextColor3 = Color3.fromRGB(148, 148, 148)
-	Description2.TextSize = 26
+	Description2.TextScaled = true
 	Description2.TextWrapped = true
 	Description2.TextXAlignment = Enum.TextXAlignment.Left
 	Description2.TextYAlignment = Enum.TextYAlignment.Top
 	Description2.BackgroundTransparency = 1
 	Description2.BorderSizePixel = 0
 	Description2.Position = UDim2.new(0.00915685389, 0, 0.309655368, 0)
-	Description2.Size = UDim2.new(0.831513882, 0, 0.60665369, 0)
+	Description2.Size = UDim2.new(0.832, 0,0.31, 0)
 	Description2.Name = "Description"
 	Description2.Parent = TemplateSlider
 
@@ -428,7 +428,7 @@ function UILib:CreateUI(Version : string)
 	Percentage.Font = Enum.Font.SourceSans
 	Percentage.Text = "{Percentage}"
 	Percentage.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Percentage.TextSize = 16
+	Percentage.TextScaled = true
 	Percentage.TextWrapped = true
 	Percentage.TextXAlignment = Enum.TextXAlignment.Right
 	Percentage.TextYAlignment = Enum.TextYAlignment.Bottom
@@ -438,8 +438,6 @@ function UILib:CreateUI(Version : string)
 	Percentage.Size = UDim2.new(0.137355909, 0, 0.122149467, 0)
 	Percentage.Name = "Percentage"
 	Percentage.Parent = TemplateSlider
-
-
 
 	TemplateButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 	TemplateButton.BorderSizePixel = 0
@@ -458,7 +456,7 @@ function UILib:CreateUI(Version : string)
 	Title3.Font = Enum.Font.SourceSans
 	Title3.Text = "{TitleText}"
 	Title3.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title3.TextSize = 26
+	Title3.TextScaled = true
 	Title3.TextWrapped = true
 	Title3.TextXAlignment = Enum.TextXAlignment.Left
 	Title3.TextYAlignment = Enum.TextYAlignment.Top
@@ -472,21 +470,21 @@ function UILib:CreateUI(Version : string)
 	Description3.Font = Enum.Font.SourceSans
 	Description3.Text = "{DescriptionText}"
 	Description3.TextColor3 = Color3.fromRGB(148, 148, 148)
-	Description3.TextSize = 26
+	Description3.TextScaled = true
 	Description3.TextWrapped = true
 	Description3.TextXAlignment = Enum.TextXAlignment.Left
 	Description3.TextYAlignment = Enum.TextYAlignment.Top
 	Description3.BackgroundTransparency = 1
 	Description3.BorderSizePixel = 0
 	Description3.Position = UDim2.new(0.00915685389, 0, 0.309655368, 0)
-	Description3.Size = UDim2.new(0.831513882, 0, 0.60665369, 0)
+	Description3.Size = UDim2.new(0.832, 0,0.31, 0)
 	Description3.Name = "Description"
 	Description3.Parent = TemplateButton
 
 	ExecuteButton.Font = Enum.Font.GothamBold
 	ExecuteButton.Text = "{ButtonText}"
 	ExecuteButton.TextColor3 = Color3.fromRGB(156, 156, 156)
-	ExecuteButton.TextSize = 21
+	ExecuteButton.TextScaled = true
 	ExecuteButton.AutoButtonColor = false
 	ExecuteButton.Modal = true
 	ExecuteButton.BackgroundTransparency = 1
@@ -503,7 +501,7 @@ function UILib:CreateUI(Version : string)
 	LabelTemplate.Font = Enum.Font.Gotham
 	LabelTemplate.Text = "{Label}"
 	LabelTemplate.TextColor3 = Color3.fromRGB(148, 148, 148)
-	LabelTemplate.TextSize = 35
+	LabelTemplate.TextScaled = true
 	LabelTemplate.TextWrapped = true
 	LabelTemplate.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 	LabelTemplate.BorderSizePixel = 0
@@ -519,7 +517,7 @@ function UILib:CreateUI(Version : string)
 	UIStroke7.Thickness = 2
 	UIStroke7.Parent = LabelTemplate
 	
-	function self:CreatePage(PageName_ : string, PageIcon : string, SetCurrentPage : BoolValue)
+	function self:CreatePage(PageName_: string, PageIcon: string, SetCurrentPage: BoolValue)
 		local NewPage = PageTemplate:Clone()
 		NewPage.Name = PageName_
 		NewPage.Parent = MainPageSection
