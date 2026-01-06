@@ -136,6 +136,10 @@ function UILib:CreateUI(Version)
 	CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 	CloseButton.Text = "X"
 	CloseButton.Modal = true
+	
+	CloseButton.MouseButton1Click:Connect(function()
+		UILibMain:Destroy()
+	end)
 
 	VeltridLogo.Parent = TopBar
 	VeltridLogo.Name = "VeltridLogo"
@@ -587,10 +591,10 @@ function UILib:CreateUI(Version)
 			task.spawn(function()
 				while task.wait() do
 					local Formatted = string.format("%.1f", NewSlider:WaitForChild("SliderMain"):WaitForChild("SliderSection").Position.X.Scale) * 100
+					if string.split(Formatted, "")[1] == "-" then
+						Formatted = 0
+					end
 					if NewSlider:WaitForChild("Percentage").Text ~= tostring(Formatted).."%" then
-						if string.split(Formatted, "")[1] == "-" then
-							Formatted = 0
-						end
 						NewSlider:WaitForChild("Percentage").Text = tostring(Formatted).."%"
 						SliderFunction(Formatted)
 					end
